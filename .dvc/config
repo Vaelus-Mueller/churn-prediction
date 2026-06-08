@@ -1,0 +1,6 @@
+[core]
+    remote = myremote
+['remote "localremote"']
+    url = C:\Users\nalma\dvc-storage
+['remote "myremote"']
+    url = C:\tmp\dvc-remote
