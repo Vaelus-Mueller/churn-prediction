@@ -1,0 +1,29 @@
+# Data file contents (tracked by DVC, not Git)
+# We ignore specific file types rather than the whole data/ directory
+# so that DVC pointer files (.dvc) can still be tracked by Git
+data/**/*.csv
+data/**/*.parquet
+data/**/*.json.gz
+
+# Model files (tracked by DVC)
+models/*.pkl
+models/*.joblib
+models/*.h5
+models/*.pt
+models/*.onnx
+
+# Metrics output
+metrics/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+💡 Why not just ignore the whole data/ folder? It is tempting to write data/ in your .gitignore, but DVC creates small pointer files like data/raw/customers.csv.dvc that need to be tracked by Git. If Git ignores the entire directory, DVC cannot do its job. By ignoring specific file extensions instead, Git skips the large data files but still sees the tiny .dvc files. This is a common gotcha that trips up beginners.
